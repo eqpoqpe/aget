@@ -1,1 +1,3 @@
-
+@script
+@source::./util/start-process.bash.scr
+@script
