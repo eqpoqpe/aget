@@ -1,2 +1,5 @@
 # aget
-API Getter
+`API Getter`
+
+# Compilation
+`Execute Bash Script`
