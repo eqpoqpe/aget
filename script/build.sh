@@ -1,3 +1,3 @@
 #!/bin/bash
 
-declare scr_c=scrc
+declare readonly scr_c=scrc
