@@ -3,4 +3,8 @@ build/
      |`- aget
      |`- aget/
      |    `- src/...
-      `- install
+     |`- install
+      `- install.conf
+
+aget: [bash entry]
+install: [bash script]
