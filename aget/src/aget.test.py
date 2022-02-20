@@ -1,6 +1,5 @@
 from modules import Config
 
-config = Config({"apiconfig": {"protocol": "", "protocol": "", "domain": "", "path": ""}})
-# config.plus = lambda x : x + x
+config = Config(Config.rconf("./config.ci.json"))
 
-# print(config.plus)
+print(config)

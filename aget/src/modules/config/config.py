@@ -16,6 +16,12 @@ from pathlib import Path
 # default config path to '$WORKING_DIR/config.ci.json'
 
 class Config:
+
+    """
+    return str format with "protocl:domain:path@parameter1"
+    
+    saved the order of parameters
+    """
     def __init__(self, d: Union[dict, int], handle: Any=None) -> None:
         __apiconfig = "apiconfig"
         __dynamic = "dynamic"
@@ -25,8 +31,8 @@ class Config:
         __path = "path"
         __parameter = "parameter"
 
-        # self.plugin = []
-        self.__param
+        self.__plugin = []
+        self.__param = {}
 
         """
         added key existing check
@@ -37,15 +43,17 @@ class Config:
         try:
             d[__apiconfig]
             self.__keycheck(d, [__protocol, __domain, __path])
-            self.__setattr__("__param", str(d))
+            self.__param = d
         except KeyError as err:
             print("Error: not found key %s" %err)
 
     def __setattr__(self, __name: str, __value: Any) -> None:
-        self.__param = __value
+        self.__dict__[__name] = __value
 
     def __str__(self) -> str:
-        return ""
+        apiconfig = self.__param["apiconfig"]
+
+        return "%s:%s:%s@%s" %(apiconfig["protocol"], apiconfig["domain"], apiconfig["path"], "None")
 
     def __keycheck(self, d: dict, kks: Union[list, str]) -> NoReturn:
         ks = kks

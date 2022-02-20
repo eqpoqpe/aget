@@ -1,23 +1,21 @@
 {
 	"aget": {
+		"dynamic": true,
+		"static": false
 	},
 	"apiconfig": {
 		"user": true,
-		"protocol": "",
-		"domain": "",
-		"path": "",
-		"parameter": {
-			"dynamic": [
-				"ts",
-				"ttl",
-				"sig"
-			],
-			"static": {
-				"public_key": "",
-				"private_key": "",
-				"fields": "",
-				"location": ""
-			}
+		"protocol": "https",
+		"domain": "eqpo.ml",
+		"path": "/",
+		"parameter1": {
+			"public_key": "",
+			"private_key": "",
+			"ts": true,
+			"ttl": true,
+			"sig": true,
+			"fields": "",
+			"location": ""
 		}
 	}
 }
