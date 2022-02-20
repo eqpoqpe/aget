@@ -1,4 +1,6 @@
 """
+config.py - aget
+
 Copyright (c) 2022 Ryan Martin
 """
 
@@ -14,7 +16,6 @@ from pathlib import Path
 # default config path to '$WORKING_DIR/config.ci.json'
 
 class Config:
-
     def __init__(self, d: Union[dict, int], handle: Any=None) -> None:
         __apiconfig = "apiconfig"
         __dynamic = "dynamic"
@@ -24,7 +25,8 @@ class Config:
         __path = "path"
         __parameter = "parameter"
 
-        self.plugin = []
+        # self.plugin = []
+        self.__param
 
         """
         added key existing check
@@ -32,18 +34,15 @@ class Config:
         dynamic -> list(array)
         static  -> dict
         """
-        
-        # assert __protocol and __domain in d[__apiconfig]
-        # assert __dynamic or __static in d[__apiconfig]
-
         try:
             d[__apiconfig]
-            self.__keycheck(d, [__apiconfig, __protocol, __domain, __path])
+            self.__keycheck(d, [__protocol, __domain, __path])
+            self.__setattr__("__param", str(d))
         except KeyError as err:
             print("Error: not found key %s" %err)
 
     def __setattr__(self, __name: str, __value: Any) -> None:
-        ...
+        self.__param = __value
 
     def __str__(self) -> str:
         return ""
@@ -70,3 +69,4 @@ class Config:
         if os.path.isfile(filepath):
             with open(filepath, "r") as fp:
                 c = json.load(fp)
+                return c

@@ -1,5 +1,7 @@
 import requests
 import json
+from modules import (Config, url)
+from typing import (Union)
 
 # result = requests.get("http://t.weather.sojson.com/api/weather/city/101120901", auth=("user", "pass"))
 
@@ -11,3 +13,16 @@ import json
 
 def info():
     ...
+
+class aget:
+    ...
+
+def URL(maker, param: Config) -> Union[str, bool]:
+    return param
+
+def main():
+    _url = URL(url, Config(Config.rconf("./config.ci.json")))
+    print(_url)
+
+if __name__ == "__main__":
+    main()

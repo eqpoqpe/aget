@@ -1,9 +1,7 @@
 import time
 from typing import (NoReturn, Union)
-from config import Config
 
 class url:
-
     @staticmethod
     def field(w) -> str:    return "air_daily"
 
@@ -24,8 +22,3 @@ class url:
     def sig() -> str:
         ...
 
-class Config:
-    ...
-
-def URL(maker, url: Config) -> Union[str, bool]:
-    return ""
