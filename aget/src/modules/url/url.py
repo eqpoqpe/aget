@@ -21,10 +21,8 @@ class url:
 
         if type(p) == dict:
             for index in range(len(p)):
-                if index != len(p) - 1:
-                    purl += "%s&"
-                else:
-                    purl += "%s"
+                if index != len(p) - 1: purl += "%s&"
+                else:   purl += "%s"
 
             s = [url.__extmap([sg, p[sg]]) for sg in p]
 
