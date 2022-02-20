@@ -9,13 +9,12 @@
 		"domain": "eqpo.ml",
 		"path": "/",
 		"parameter1": {
-			"public_key": "",
-			"private_key": "",
+			"fields": "air_daily",
+			"location": "39:118",
+			"public_key": "PbITsjM-qxByWhdOe",
 			"ts": true,
-			"ttl": true,
-			"sig": true,
-			"fields": "",
-			"location": ""
+			"ttl": 300,
+			"sig": true
 		}
 	}
 }

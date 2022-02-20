@@ -53,7 +53,12 @@ class Config:
     def __str__(self) -> str:
         apiconfig = self.__param["apiconfig"]
 
-        return "%s:%s:%s@%s" %(apiconfig["protocol"], apiconfig["domain"], apiconfig["path"], "None")
+        return "%s:%s:%s@%s" %(
+            apiconfig["protocol"],
+            apiconfig["domain"],
+            apiconfig["path"],
+            json.dumps(apiconfig["parameter1"])
+            )
 
     def __keycheck(self, d: dict, kks: Union[list, str]) -> NoReturn:
         ks = kks
@@ -77,4 +82,5 @@ class Config:
         if os.path.isfile(filepath):
             with open(filepath, "r") as fp:
                 c = json.load(fp)
+
                 return c
