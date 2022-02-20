@@ -6,14 +6,14 @@
 	"apiconfig": {
 		"user": true,
 		"protocol": "https",
-		"domain": "eqpo.ml",
-		"path": "/",
+		"domain": "api.seniverse.com",
+		"path": "/v4",
 		"parameter1": {
 			"fields": "air_daily",
 			"location": "39:118",
 			"public_key": "PbITsjM-qxByWhdOe",
 			"ts": true,
-			"ttl": 300,
+			"ttl": 1000,
 			"sig": true
 		}
 	}

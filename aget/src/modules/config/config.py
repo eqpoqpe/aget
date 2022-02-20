@@ -10,9 +10,6 @@ Copyright (c) 2022 Ryan Martin
 from importlib.resources import path
 import json
 import os
-from symtable import Function
-import sys
-import types
 from typing import (Any, Union, NoReturn, overload)
 from pathlib import Path
 
@@ -43,12 +40,9 @@ class Config:
         dynamic -> list(array)
         static  -> dict
         """
-        try:
-            d[__apiconfig]
-            self.__keycheck(d, [__protocol, __domain, __path])
-            self.__param = d
-        except KeyError as err:
-            print("Error: not found key %s" %err)
+        self.__iskeyexists(d, "apiconfig")
+        self.__keyscheck(d, [__protocol, __domain, __path])
+        self.__param = d
 
     def __setattr__(self, __name: str, __value: Any) -> None:
         self.__dict__[__name] = __value
@@ -60,17 +54,22 @@ class Config:
             apiconfig["protocol"],
             apiconfig["domain"],
             apiconfig["path"],
-            json.dumps(apiconfig["parameter1"])
+            self.__iskeyexists(apiconfig, "parameter1") and json.dumps(apiconfig["parameter1"]) or False
             )
 
-    def __keycheck(self, d: dict, kks: Union[list, str]) -> NoReturn:
+    def __keyscheck(self, d: dict, kks: Union[list, str]) -> NoReturn:
         ks = kks
-        
+
         for key in kks:
-            try:
-                d[key]
-            except:
-                d["apiconfig"][key]
+            if not self.__iskeyexists(d, key) and not self.__iskeyexists(d["apiconfig"], key):
+                raise Exception("ERROR: not found key '%s'" %key)
+
+    def __iskeyexists(self, d: dict, ks: str):
+        try:
+            d[ks]
+            return True
+        except:
+            return False
 
     @overload
     def Info(self):
