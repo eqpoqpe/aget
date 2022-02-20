@@ -1,3 +1,12 @@
+"""
+aget.py - aget
+
+for learning communication purposes only
+open-source under MIT license
+
+Copyright (c) 2022 Ryan Martin
+"""
+
 import requests
 import json
 from modules import (Config, url)

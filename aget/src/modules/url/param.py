@@ -1,3 +1,12 @@
+"""
+param.py - aget
+
+for learning communication purposes only
+open-source under MIT license
+
+Copyright (c) 2022 Ryan Martin
+"""
+
 from curses.ascii import isctrl
 import re
 from typing import (Any)

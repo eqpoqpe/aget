@@ -1,16 +1,12 @@
 import json
-import time
 from modules import Config
-from modules import (param, fill)
+from modules import (param, merge)
 
 config = Config(Config.rconf("./config.ci.json"))
 url = param.parse(config)[0]
 parameters = param.parse(config)[1]
 
 dat = json.loads(parameters)
-dat = param.fill(dat)
-# result = fill(dat).tostr()
+par = param.fill(dat)
 
-# print(result)
-
-# print(urllib.parse.quote("GHETq6Tvivz10hr++znDO/Jew7E="))
+print(merge.merge(url, par))

@@ -1,3 +1,12 @@
+"""
+seat.py - aget
+
+for learning communication purposes only
+open-source under MIT license
+
+Copyright (c) 2022 Ryan Martin
+"""
+
 import time
 import hashlib
 import hmac
@@ -49,8 +58,6 @@ class url:
 
         s = [url.__extmap([sg, p[sg]]) for sg in nsig]
 
-        print(psig%tuple(s))
-
         key = bytes(p["public_key"], "UTF-8")
         msg = bytes(psig%tuple(s), "UTF-8")
         digester = hmac.new(key, msg, hashlib.sha1)
@@ -69,6 +76,8 @@ class urls:
 
     @staticmethod
     def sval(s: Union[bool, str], k: str=False) -> str:
+        
+        """ check value """
         if type(s) == bool and s:
             return urli.interface[k](s)
         return s
