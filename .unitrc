@@ -1,5 +1,4 @@
 lang@python3;
 project@aget;
-unit@test;
-build@{aget, main};
-
+unit@aget.test;
+build@aget;
