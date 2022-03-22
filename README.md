@@ -1,2 +1,2 @@
-# aget
+# AGet
 `API Getter`
