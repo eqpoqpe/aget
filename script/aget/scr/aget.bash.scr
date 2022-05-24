@@ -1,5 +1,0 @@
-@script
-@source::./util/start-process.bash.scr
-@source::net::https@github.com/eqpoqpe/script.examples/menu/main.bash.scr
-@source::net::https@github.com/eqpoqpe/script.examples/menu/script/menu.sh
-@script
